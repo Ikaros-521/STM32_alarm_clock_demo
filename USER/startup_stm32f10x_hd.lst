@@ -566,10 +566,10 @@ ARM Macro Assembler    Page 9
 Command Line: --debug --xref --diag_suppress=9931 --cpu=Cortex-M3 --apcs=interw
 ork --depend=..\obj\startup_stm32f10x_hd.d -o..\obj\startup_stm32f10x_hd.o -I"F
 :\BaiduNetdiskDownload\¡¾ÕýµãÔ­×Ó¡¿¾«Ó¢STM32F103¿ª·¢°å×ÊÁÏ ×ÊÁÏÅÌ(AÅÌ)\4£¬³ÌÐòÔ
-´Âë\2£¬±ê×¼Àý³Ì-¿âº¯Êý°æ±¾\2£¬±ê×¼Àý³Ì-¿âº¯Êý°æ±¾\ÊµÑé15 RTCÊµÑé - ¸±±¾\USER\RT
-E\_RTC" -ID:\KELI\ARM\PACK\Keil\STM32F1xx_DFP\2.1.0\Device\Include -ID:\KELI\AR
-M\CMSIS\Include --predefine="__UVISION_VERSION SETA 522" --predefine="STM32F10X
-_HD SETA 1" --list=.\startup_stm32f10x_hd.lst ..\CORE\startup_stm32f10x_hd.s
+´Âë\2£¬±ê×¼Àý³Ì-¿âº¯Êý°æ±¾\STM32_alarm_clock_demo\USER\RTE\_RTC" -ID:\KELI\ARM\
+PACK\Keil\STM32F1xx_DFP\2.1.0\Device\Include -ID:\KELI\ARM\CMSIS\Include --pred
+efine="__UVISION_VERSION SETA 522" --predefine="STM32F10X_HD SETA 1" --list=.\s
+tartup_stm32f10x_hd.lst ..\CORE\startup_stm32f10x_hd.s
 
 
 

@@ -56,7 +56,7 @@ int main(void)
     POINT_COLOR = BLUE;
     LCD_ShowString(60, 130, 300, 16, 16, "N O W    :  :  ");
     LCD_ShowString(60, 162, 300, 16, 16, "ALARM    :  :  ");
-	 LCD_ShowString(20, 220, 200, 16, 16, "Press KEY1 or KEY_UP");
+	LCD_ShowString(20, 220, 200, 16, 16, "Press KEY1 or KEY_UP");
     LCD_ShowString(20, 236, 200, 16, 16, "to STOP BEEP");
     calendar_temp = calendar;
 
@@ -95,7 +95,8 @@ int main(void)
             if (1 == index)
             {
                 calendar_temp = calendar;
-					 mode = 1;
+				mode = 1;
+				printf("Enter modify mode.\r\n");
             }
             /* 退出修改 */
             else if (0 == index)
@@ -108,12 +109,15 @@ int main(void)
                 // NumToWrite:半字(16位)数(就是要写入的16位数据的个数.)
                 STMFLASH_Write(FLASH_SAVE_ADDR, (u16 *)&alarm.hour, 1);
                 STMFLASH_Write(FLASH_SAVE_ADDR + 0X2, (u16 *)&alarm.min, 1);
-					 mode = 0;
+				mode = 0;
+				printf("modify finish! Enter normal mode.\r\n");
             }
         }
         /* KEY1 选中值+1 */
         else if (2 == key)
         {
+			printf("KEY1 click!\r\n");
+			
             if (1 == index)
             {
                 calendar_temp.hour++;
@@ -145,11 +149,14 @@ int main(void)
                 flag = 1;
                 BEEP = 0;
                 count = 0;
+				printf("flag = 1, BEEP = 0, count = 0\r\n");
             }
         }
         /* KEY_UP 选中值-1 */
         else if (3 == key)
         {
+			printf("KEY_UP click!\r\n");
+			
             if (1 == index)
             {
                 calendar_temp.hour = calendar_temp.hour == 0 ? 23 : calendar_temp.hour - 1;
@@ -176,6 +183,7 @@ int main(void)
                 flag = 1;
                 BEEP = 0;
                 count = 0;
+				printf("flag = 1, BEEP = 0, count = 0\r\n");
             }
         }
         else if (0 == key)
@@ -187,6 +195,7 @@ int main(void)
                 if (calendar.hour == alarm.hour && calendar.min == alarm.min && BEEP == 0 && 0 == flag)
                 {
                     BEEP = 1;
+					printf("Start BEEP!\r\n");
                 }
                 // 闹钟没到点 && 按下了KEY1或KEY_UP键
                 else if ((calendar.hour != alarm.hour || calendar.min != alarm.min) && 1 == flag)
@@ -203,6 +212,7 @@ int main(void)
             LCD_ShowString(20, 204, 200, 16, 16, "BEEP!!!  (>__<)  ");
             POINT_COLOR = BLUE;
             count++;
+			// printf("1 == BEEP, count++\r\n");
         }
         else
         {
@@ -216,6 +226,7 @@ int main(void)
             flag = 1;
             BEEP = 0;
             count = 0;
+			printf("5 * 6000 <= count, Stop BEEP, flag = 1, count = 0\r\n");
         }
 
         delay_ms(10);
