@@ -3,7 +3,7 @@
 <title>Static Call Graph - [..\OBJ\RTC.axf]</title></head>
 <body><HR>
 <H1>Static Call Graph for image ..\OBJ\RTC.axf</H1><HR>
-<BR><P>#&#060CALLGRAPH&#062# ARM Linker, 5060422: Last Updated: Tue Dec 07 16:58:23 2021
+<BR><P>#&#060CALLGRAPH&#062# ARM Linker, 5060422: Last Updated: Tue Dec 14 09:29:36 2021
 <BR><P>
 <H3>Maximum Stack Usage =        372 bytes + Unknown(Functions without stacksize, Cycles, Untraceable Function Pointers)</H3><H3>
 Call chain for Maximum Stack Depth:</H3>
@@ -284,15 +284,15 @@ Global Symbols
 <BR><BR>[Calls]<UL><LI><a href="#[6d]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;_sys_exit
 </UL>
 
-<P><STRONG><a name="[6e]"></a>show_index_time</STRONG> (Thumb, 194 bytes, Stack size 32 bytes, main.o(.text))
-<BR><BR>[Stack]<UL><LI>Max Depth = 140<LI>Call Chain = show_index_time &rArr; LCD_ShowNum &rArr; LCD_ShowChar &rArr; LCD_Fast_DrawPoint
+<P><STRONG><a name="[6e]"></a>show_index_time</STRONG> (Thumb, 218 bytes, Stack size 32 bytes, main.o(.text))
+<BR><BR>[Stack]<UL><LI>Max Depth = 144<LI>Call Chain = show_index_time &rArr; LCD_ShowxNum &rArr; LCD_ShowChar &rArr; LCD_Fast_DrawPoint
 </UL>
-<BR>[Calls]<UL><LI><a href="#[6f]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;LCD_ShowNum
+<BR>[Calls]<UL><LI><a href="#[6f]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;LCD_ShowxNum
 </UL>
 <BR>[Called By]<UL><LI><a href="#[68]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;main
 </UL>
 
-<P><STRONG><a name="[68]"></a>main</STRONG> (Thumb, 1486 bytes, Stack size 64 bytes, main.o(.text))
+<P><STRONG><a name="[68]"></a>main</STRONG> (Thumb, 1532 bytes, Stack size 64 bytes, main.o(.text))
 <BR><BR>[Stack]<UL><LI>Max Depth = 336 + Unknown Stack Size
 <LI>Call Chain = main &rArr; LCD_Init &rArr; __2printf &rArr; _printf_char_file &rArr; _printf_char_common &rArr; __printf
 </UL>
@@ -601,30 +601,30 @@ Global Symbols
 </UL>
 <BR>[Calls]<UL><LI><a href="#[92]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;LCD_Fast_DrawPoint
 </UL>
-<BR>[Called By]<UL><LI><a href="#[a4]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;LCD_ShowxNum
+<BR>[Called By]<UL><LI><a href="#[a3]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;LCD_ShowNum
+<LI><a href="#[6f]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;LCD_ShowxNum
 <LI><a href="#[78]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;LCD_ShowString
-<LI><a href="#[6f]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;LCD_ShowNum
 </UL>
 
-<P><STRONG><a name="[a3]"></a>LCD_Pow</STRONG> (Thumb, 22 bytes, Stack size 8 bytes, lcd.o(.text))
+<P><STRONG><a name="[a4]"></a>LCD_Pow</STRONG> (Thumb, 22 bytes, Stack size 8 bytes, lcd.o(.text))
 <BR><BR>[Stack]<UL><LI>Max Depth = 8<LI>Call Chain = LCD_Pow
 </UL>
-<BR>[Called By]<UL><LI><a href="#[a4]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;LCD_ShowxNum
-<LI><a href="#[6f]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;LCD_ShowNum
+<BR>[Called By]<UL><LI><a href="#[a3]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;LCD_ShowNum
+<LI><a href="#[6f]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;LCD_ShowxNum
 </UL>
 
-<P><STRONG><a name="[6f]"></a>LCD_ShowNum</STRONG> (Thumb, 148 bytes, Stack size 56 bytes, lcd.o(.text))
-<BR><BR>[Stack]<UL><LI>Max Depth = 108<LI>Call Chain = LCD_ShowNum &rArr; LCD_ShowChar &rArr; LCD_Fast_DrawPoint
+<P><STRONG><a name="[a3]"></a>LCD_ShowNum</STRONG> (Thumb, 148 bytes, Stack size 56 bytes, lcd.o(.text), UNUSED)
+<BR><BR>[Calls]<UL><LI><a href="#[a4]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;LCD_Pow
+<LI><a href="#[a2]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;LCD_ShowChar
 </UL>
-<BR>[Calls]<UL><LI><a href="#[a3]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;LCD_Pow
+
+<P><STRONG><a name="[6f]"></a>LCD_ShowxNum</STRONG> (Thumb, 220 bytes, Stack size 60 bytes, lcd.o(.text))
+<BR><BR>[Stack]<UL><LI>Max Depth = 112<LI>Call Chain = LCD_ShowxNum &rArr; LCD_ShowChar &rArr; LCD_Fast_DrawPoint
+</UL>
+<BR>[Calls]<UL><LI><a href="#[a4]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;LCD_Pow
 <LI><a href="#[a2]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;LCD_ShowChar
 </UL>
 <BR>[Called By]<UL><LI><a href="#[6e]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;show_index_time
-</UL>
-
-<P><STRONG><a name="[a4]"></a>LCD_ShowxNum</STRONG> (Thumb, 220 bytes, Stack size 60 bytes, lcd.o(.text), UNUSED)
-<BR><BR>[Calls]<UL><LI><a href="#[a3]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;LCD_Pow
-<LI><a href="#[a2]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;LCD_ShowChar
 </UL>
 
 <P><STRONG><a name="[78]"></a>LCD_ShowString</STRONG> (Thumb, 102 bytes, Stack size 36 bytes, lcd.o(.text))

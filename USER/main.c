@@ -58,6 +58,7 @@ int main(void)
     LCD_ShowString(60, 162, 300, 16, 16, "ALARM    :  :  ");
 	LCD_ShowString(20, 220, 200, 16, 16, "Press KEY1 or KEY_UP");
     LCD_ShowString(20, 236, 200, 16, 16, "to STOP BEEP");
+	LCD_ShowString(20, 252, 200, 16, 16, "Press KEY0 to modify");
     calendar_temp = calendar;
 
     // 从指定地址开始读出指定长度的数据
@@ -236,26 +237,41 @@ int main(void)
 /* 显示时间，index特殊处理 */
 void show_index_time(u8 index, _calendar_obj calendar_temp, _calendar_obj alarm)
 {
+	// 修改颜色
     POINT_COLOR = BLUE;
+	// 修改模式下，显示红色
     if (1 == index)
         POINT_COLOR = RED;
-    LCD_ShowNum(116, 130, calendar_temp.hour, 2, 16);
+	
+	/*
+		显示数字,高位为0,则不显示
+		x,y :起点坐标	
+		num:数值(0~999999999);
+		len:长度(即要显示的位数)
+		size:字体大小
+		mode:
+			[7]:0,不填充;1,填充0.
+			[6:1]:保留
+			[0]:0,非叠加显示;1,叠加显示.
+	*/
+	// BIN 1000000 -> DEC 128
+    LCD_ShowxNum(116, 130, calendar_temp.hour, 2, 16, 128);
     POINT_COLOR = BLUE;
     if (2 == index)
         POINT_COLOR = RED;
-    LCD_ShowNum(140, 130, calendar_temp.min, 2, 16);
+    LCD_ShowxNum(140, 130, calendar_temp.min, 2, 16, 128);
     POINT_COLOR = BLUE;
     if (3 == index)
         POINT_COLOR = RED;
-    LCD_ShowNum(164, 130, calendar_temp.sec, 2, 16);
+    LCD_ShowxNum(164, 130, calendar_temp.sec, 2, 16, 128);
     POINT_COLOR = BLUE;
     if (4 == index)
         POINT_COLOR = RED;
-    LCD_ShowNum(116, 162, alarm.hour, 2, 16);
+    LCD_ShowxNum(116, 162, alarm.hour, 2, 16, 128);
     POINT_COLOR = BLUE;
     if (5 == index)
         POINT_COLOR = RED;
-    LCD_ShowNum(140, 162, alarm.min, 2, 16);
+    LCD_ShowxNum(140, 162, alarm.min, 2, 16, 128);
     POINT_COLOR = BLUE;
-    LCD_ShowNum(164, 162, alarm.sec, 2, 16);
+    LCD_ShowxNum(164, 162, alarm.sec, 2, 16, 128);
 }
